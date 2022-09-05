@@ -32,7 +32,7 @@ function User({ contactData, deleteUser, handleEdit }) {
           <p className="card-text">Location: {contactData.location}</p>
           <a
             className="btn btn-primary mr-3"
-            href="#"
+            href="#gh"
             onClick={handleShow}
             role="button"
           >
@@ -40,7 +40,7 @@ function User({ contactData, deleteUser, handleEdit }) {
           </a>
           <a
             className="btn btn-danger"
-            href="#"
+            href="#ghy"
             onClick={handleDelete}
             role="button"
           >
