@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import { Modal } from 'react-bootstrap';
-import EditUserForm from './EditUserForm';
+import React, { useState } from "react";
+import { Modal } from "react-bootstrap";
+import EditContactsForm from "./EditContactsForm";
 
-function User({ userData, deleteUser, handleEdit }) {
+function User({ contactData, deleteUser, handleEdit }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const handleDelete = () => {
-    deleteUser(userData.id);
+    deleteUser(contactData.id);
   };
   return (
     <>
@@ -16,33 +16,33 @@ function User({ userData, deleteUser, handleEdit }) {
           <Modal.Title>Edit User</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <EditUserForm
+          <EditContactsForm
             handleEdit={handleEdit}
             hide={handleClose}
-            userData={userData}
+            contactData={contactData}
           />
         </Modal.Body>
       </Modal>
-      <div className='card m-2' style={{ width: '18rem' }}>
-        <div className='card-body'>
-          <h5 className='card-title'>Name: {userData.name}</h5>
-          <h6 className='card-subtitle mb-2 text-muted'>
-            Email: {userData.email}
+      <div className="card m-2" style={{ width: "18rem" }}>
+        <div className="card-body">
+          <h5 className="card-title">Name: {contactData.name}</h5>
+          <h6 className="card-subtitle mb-2 text-muted">
+            Phone: {contactData.phone}
           </h6>
-          <p className='card-text'>Gen: {userData.gen}</p>
+          <p className="card-text">Location: {contactData.location}</p>
           <a
-            class='btn btn-primary mr-3'
-            href='#'
+            className="btn btn-primary mr-3"
+            href="#"
             onClick={handleShow}
-            role='button'
+            role="button"
           >
             Edit
           </a>
           <a
-            class='btn btn-danger'
-            href='#'
+            className="btn btn-danger"
+            href="#"
             onClick={handleDelete}
-            role='button'
+            role="button"
           >
             Delete
           </a>

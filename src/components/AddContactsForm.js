@@ -2,16 +2,16 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-function AddUserForm({ addUser }) {
+function AddUserForm({ addContact }) {
   const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [gen, setGen] = useState('');
+  const [phone, setPhone] = useState('');
+  const [location, setLocation] = useState('');
   const handleSubmit = (e) => {
     e.preventDefault();
-    addUser({ name, email, gen });
+    addContact({ name, phone, location });
     setName('');
-    setEmail('');
-    setGen('');
+    setPhone('');
+    setLocation('');
   };
 
   return (
@@ -19,7 +19,7 @@ function AddUserForm({ addUser }) {
       <Form.Group className='mb-3' controlId='formBasicEmail'>
         <Form.Label>Name</Form.Label>
         <Form.Control
-          type='Name'
+          type='text'
           value={name}
           onChange={(e) => {
             setName(e.target.value);
@@ -27,23 +27,23 @@ function AddUserForm({ addUser }) {
         />
       </Form.Group>
       <Form.Group className='mb-3' controlId='formBasicEmail'>
-        <Form.Label>Email address</Form.Label>
+        <Form.Label>Phone</Form.Label>
         <Form.Control
-          type='email'
-          value={email}
+          type='text'
+          value={phone}
           onChange={(e) => {
-            setEmail(e.target.value);
+            setPhone(e.target.value);
           }}
         />
       </Form.Group>
 
       <Form.Group className='mb-3' controlId='formBasicPassword'>
-        <Form.Label>Gen</Form.Label>
+        <Form.Label>Location</Form.Label>
         <Form.Control
-          type='gen'
-          value={gen}
+          type='text'
+          value={location}
           onChange={(e) => {
-            setGen(e.target.value);
+            setLocation(e.target.value);
           }}
         />
       </Form.Group>

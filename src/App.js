@@ -1,12 +1,22 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { useState } from "react";
-import AddUserForm from "./components/AddUserForm";
-import AllUsers from "./components/AllUsers";
+import AddContactsForm from "./components/AddContactsForm";
+import Contacts from "./components/Contacts";
 
 function App() {
   const [users, setUsers] = useState([
-    { name: "Rick", email: "rick@gmail.com", gen: 22, id: "1659431731207" },
-    { name: "Danny", email: "danny@gmail.com", gen: 22, id: "1659431734534" },
+    {
+      name: "RICK",
+      phone: "0203445566",
+      location: "Accra",
+      id: "1659431731207",
+    },
+    {
+      name: "DANNY",
+      phone: "0203445566",
+      location: "Accra",
+      id: "1659431734534",
+    },
   ]);
 
   const handleSubmit = (user) => {
@@ -14,15 +24,14 @@ function App() {
       ...users,
       {
         name: user.name,
-        email: user.email,
-        gen: user.gen,
+        phone: user.phone,
+        location: user.location,
         id: new Date().getTime().toString(),
       },
     ]);
   };
 
-  // delete user
-  const deleteUser = (id) => {
+  const handleDeleteContact = (id) => {
     setUsers(users.filter((user) => user.id !== id));
   };
 
@@ -35,12 +44,12 @@ function App() {
       <div className="container">
         <div className="row mt-5">
           <div className="col-md-6">
-            <AddUserForm addUser={handleSubmit} />
+            <AddContactsForm addContact={handleSubmit} />
           </div>
           <div className="col-md-6">
-            <AllUsers
-              userData={users}
-              deleteUser={deleteUser}
+            <Contacts
+              contactData={users}
+              deleteUser={handleDeleteContact}
               handleEdit={handleEdit}
             />
           </div>

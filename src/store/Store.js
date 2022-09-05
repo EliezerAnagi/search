@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware } from "redux";
-import UsersReducer from "../reducers/UsersReducer";
+import ContactReducer from "../reducers/ContactReducers";
 
-let store = createStore(UsersReducer, applyMiddleware());
+let store = createStore(ContactReducer, applyMiddleware());
 
 export default store;
